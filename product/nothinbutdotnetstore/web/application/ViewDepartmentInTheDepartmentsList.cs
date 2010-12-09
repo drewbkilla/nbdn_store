@@ -5,17 +5,17 @@ using nothinbutdotnetstore.web.infrastructure.stubs;
 
 namespace nothinbutdotnetstore.web.application
 {
-    public class ViewDepartmentInTheDepartmentsList : ApplicationCommand
+    public class ViewMainDepartmentsInTheStore : ApplicationCommand
     {
         Repository repository;
         ResponseEngine response_engine;
 
-        public ViewDepartmentInTheDepartmentsList():this(new StubRepository(),
+        public ViewMainDepartmentsInTheStore():this(new StubRepository(),
             new StubResponseEngine())
         {
         }
 
-        public ViewDepartmentInTheDepartmentsList(Repository repository, ResponseEngine response_engine)
+        public ViewMainDepartmentsInTheStore(Repository repository, ResponseEngine response_engine)
         {
             this.repository = repository;
             this.response_engine = response_engine;
@@ -23,7 +23,7 @@ namespace nothinbutdotnetstore.web.application
 
         public void process(Request request)
         {
-            response_engine.prepare(repository.get_department_from_department_list_in_the_store());
+            response_engine.prepare(repository.get_all_the_main_departments_in_the_store());
         }
     }
 }

@@ -10,5 +10,11 @@ namespace nothinbutdotnetstore.tasks.stubs
         {
             return Enumerable.Range(1, 100).Select(x => new Department{name =  x.ToString("Department 0")});
         }
+
+
+        public Department get_department_from_department_list_in_the_store()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
