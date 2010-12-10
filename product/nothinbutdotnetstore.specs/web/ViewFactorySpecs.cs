@@ -27,6 +27,11 @@ namespace nothinbutdotnetstore.specs.web
             {
             }
 
+            public override bool Equals(object obj)
+            {
+                return Equals(obj as FactoryDetails);
+            }
+
             public bool Equals(FactoryDetails other)
             {
                 return this.path == other.path &&
@@ -61,7 +66,7 @@ namespace nothinbutdotnetstore.specs.web
 
             It should_provide_the_page_factory_with_the_correct_details = () =>
             {
-                expected_details.Equals(actual_details).ShouldBeTrue();
+                actual_details.ShouldEqual(expected_details);
             };
   
             It should_return_the_correct_web_form_populated_with_its_view_model = () =>
