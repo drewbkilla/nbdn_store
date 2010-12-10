@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="infrastructure\Mapper.cs" />
     <Compile Include="infrastructure\MapperRegistry.cs" />
+    <Compile Include="SchemaConstraints.cs" />
     <Compile Include="stubs\AStub.cs" />
     <Compile Include="stubs\Stub.cs" />
     <Compile Include="web\application\mapping\DepartmentModelMapper.cs" />

@@ -31,11 +31,11 @@ namespace nothinbutdotnetstore.specs.web
                 };
                     
                 payload = new NameValueCollection();
-                payload.Add("name",prototype.name);
-                payload.Add("address",prototype.address);
-                payload.Add("age",prototype.age.ToString());
-                payload.Add("birthday",prototype.birthday.ToString());
-                payload.Add("is_skilled",prototype.is_skilled.ToString());
+                payload.Add(SchemaConstraints.name,prototype.name);
+                payload.Add(SchemaConstraints.address,prototype.address);
+                payload.Add(SchemaConstraints.age,prototype.age.ToString());
+                payload.Add(SchemaConstraints.birthday,prototype.birthday.ToString());
+                payload.Add(SchemaConstraints.is_skilled,prototype.is_skilled.ToString());
             };
 
             Because b = () =>

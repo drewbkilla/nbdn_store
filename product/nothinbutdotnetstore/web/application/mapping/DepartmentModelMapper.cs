@@ -11,11 +11,11 @@ namespace nothinbutdotnetstore.web.application.mapping
         {
             return new Department
             {
-                name = input["name"],
-                address = input["address"],
-                age = int.Parse(input["age"]),
-                birthday = DateTime.Parse(input["birthday"]),
-                is_skilled = bool.Parse(input["is_skilled"]),
+                name = input[SchemaConstraints.name],
+                address = input[SchemaConstraints.address],
+                age = int.Parse(input[SchemaConstraints.age]),
+                birthday = DateTime.Parse(input[SchemaConstraints.birthday]),
+                is_skilled = bool.Parse(input[SchemaConstraints.is_skilled]),
             };
         }
     }
