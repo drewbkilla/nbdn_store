@@ -69,6 +69,9 @@
     <Compile Include="concepts\ExpressionTreesSpecs.cs" />
     <Compile Include="utility\ObjectFactory.cs" />
     <Compile Include="web\CommandRegistrySpecs.cs" />
+    <Compile Include="web\DepartmentModelMapperSpecs.cs" />
+    <Compile Include="web\InputModelMapperSpecs.cs" />
+    <Compile Include="web\RequestFactorySpecs.cs" />
     <Compile Include="web\RequestSpecs.cs" />
     <Compile Include="web\ResponseEngineSpecs.cs" />
     <Compile Include="web\ViewFactorySpecs.cs" />

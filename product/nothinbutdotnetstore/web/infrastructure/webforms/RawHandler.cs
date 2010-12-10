@@ -1,6 +1,4 @@
 using System.Web;
-using nothinbutdotnetstore.stubs;
-using nothinbutdotnetstore.web.infrastructure.stubs;
 
 namespace nothinbutdotnetstore.web.infrastructure.webforms
 {
@@ -8,11 +6,6 @@ namespace nothinbutdotnetstore.web.infrastructure.webforms
     {
         FrontController front_controller;
         RequestFactory request_factory;
-
-        public RawHandler():this(new DefaultFrontController(),
-            Stub.with<StubRequestFactory>())
-        {
-        }
 
         public RawHandler(FrontController front_controller, RequestFactory request_factory)
         {
@@ -27,7 +20,7 @@ namespace nothinbutdotnetstore.web.infrastructure.webforms
 
         public bool IsReusable
         {
-            get { return false;}
+            get { return false; }
         }
     }
 }

@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Specialized;
 using Machine.Specifications;
 using Machine.Specifications.DevelopWithPassion.Rhino;
 using nothinbutdotnetstore.web.infrastructure;
+using Rhino.Mocks;
 
 namespace nothinbutdotnetstore.specs.web
 {
@@ -16,29 +14,33 @@ namespace nothinbutdotnetstore.specs.web
         }
 
         [Subject(typeof(DefaultRequest))]
-        public class when_using_a_default_request_to_map : concern
+        public class when_mapping_an_input_model : concern
         {
-            private Establish e = () =>
-                                      {
+            Establish e = () =>
+            {
+                the_mapped_item = new OurDepartment();
+                input_model_mapper = the_dependency<InputModelMapper>();
+                payload = new NameValueCollection();
+                provide_a_basic_sut_constructor_argument(payload);
 
+                input_model_mapper.Stub(x => x.map<OurDepartment>(payload)).Return(the_mapped_item);
+            };
 
-                                      };
+            Because b = () =>
+                result = sut.map<OurDepartment>();
 
-            private Because b = () => { the_return_model = sut.map<OurModel>(); };
+            It should_return_the_item_mapped_using_the_payload = () =>
+                result.ShouldEqual(the_mapped_item);
 
-            private It should_return_the_mapped_model = () =>
-                                                            {
-                                                                the_return_model.ShouldBeAn<OurModel>();
-                                                                the_return_model.ShouldNotBeNull();
-                                                            };
-
-            private static OurModel the_return_model;
+            static OurDepartment result;
+            static OurDepartment the_mapped_item;
+            static InputModelMapper input_model_mapper;
+            static NameValueCollection payload;
         }
-
     }
 
-    public class OurModel
+    public class OurDepartment
     {
-        
+        public string name { get; set; }
     }
 }
